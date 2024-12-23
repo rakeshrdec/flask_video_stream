@@ -10,6 +10,7 @@ def generate_frame():
         if not succes:
             break
         else:
+            frame = cv2.flip(frame, 1)  # Remove this line if no flip is required
             ret,buffer=cv2.imencode('.jpg',frame)
             frame=buffer.tobytes()
             yield(b'--frame\r\n'
